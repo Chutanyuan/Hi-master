@@ -14,6 +14,7 @@
 @property(nonatomic,strong)UIImageView * headerImage;
 @property(nonatomic,strong)UILabel * nickname;
 @property(nonatomic,strong)UILabel * lastDialogue;
-
+@property(nonatomic,strong)NSString * username;
+@property(nonatomic,strong)UILabel * redLabel;
 
 @end

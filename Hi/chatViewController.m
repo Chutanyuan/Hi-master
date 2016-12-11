@@ -17,7 +17,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-
+    self.view.backgroundColor = [UIColor whiteColor];
+    
+//    EMMessage *message = [[EMMessage alloc] initWithReceiver:_convetsationID bodies:@[body]];
+//    message.messageType = eMessageTypeChat;
+    
     // Do any additional setup after loading the view.
 }
 

@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface chatViewController : UIViewController
+@interface chatViewController : EaseMessageViewController
+
+@property(nonatomic,strong)NSString * convetsationID;
 
 @end

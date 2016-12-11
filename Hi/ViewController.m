@@ -14,8 +14,12 @@
 
 
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource,EMClientDelegate>
-
+{
+    int unReadCount;
+}
 @property(nonatomic,strong)UITableView * tableview;
+@property(nonatomic,strong)NSArray *conversationsArray;
+
 
 @end
 
@@ -26,7 +30,21 @@
 
     [self setTabbar];
     
+    NSArray *conversations = [[EMClient sharedClient].chatManager getAllConversations];
+    unReadCount = 0;
+    for (EMConversation *conversation in conversations) {
+        unReadCount += conversation.unreadMessagesCount;
+    }
+
+    NSArray *items = self.tabBarController.tabBar.items;
+    UITabBarItem *chatItem = items[1];
+    if (unReadCount > 0) {
+        chatItem.badgeValue = [NSString stringWithFormat:@"%d",unReadCount];
+    }else{
+        chatItem.badgeValue = nil;
+    }
     [[EMClient sharedClient] addDelegate:self delegateQueue:nil];
+    [_tableview reloadData];
 }
 -(void)autoLoginDidCompleteWithError:(EMError *)aError
 {
@@ -40,6 +58,12 @@
     self.navigationController.navigationBar.titleTextAttributes=[NSDictionary dictionaryWithObject:[UIColor whiteColor] forKey:NSForegroundColorAttributeName];
     // Do any additional setup after loading the view, typically from a nib.
     [self BmobUser];
+    
+    /** 获取会话列表，所有 */
+    self.conversationsArray = [[EMClient sharedClient].chatManager getAllConversations];
+    
+    NSLog(@"%@",self.conversationsArray);
+    
     [self tableview];
     
 }
@@ -59,7 +83,7 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 10;
+    return self.conversationsArray.count;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -68,7 +92,18 @@
     if (!cell) {
         cell = [[HiTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
     }
-    cell.headerImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"%ld",(long)indexPath.row+1]];
+    EMConversation * convetsation = self.conversationsArray[indexPath.row];
+    EMMessageBody *msgBody = convetsation.lastReceivedMessage.body;
+    EMTextMessageBody *textBody = (EMTextMessageBody *)msgBody;
+    NSString *txt = textBody.text;
+    cell.lastDialogue.text = txt;
+
+    if (convetsation.unreadMessagesCount>0) {
+        cell.redLabel.hidden = NO;
+    }else{
+        cell.redLabel.hidden = YES;
+    }
+    cell.username = convetsation.conversationId;
     return cell;
     
 }
@@ -81,7 +116,10 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    chatViewController *chatController = [[chatViewController alloc] init];
+    
+    EMConversation * convetsation = self.conversationsArray[indexPath.row];
+    chatViewController *chatController = [[chatViewController alloc] initWithConversationChatter:convetsation.conversationId conversationType:EMConversationTypeChat];
+    chatController.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:chatController animated:YES];
 }
 
