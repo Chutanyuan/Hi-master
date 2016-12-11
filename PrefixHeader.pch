@@ -14,6 +14,29 @@
 /**屏幕的宽*/
 #define screenwidth [UIScreen mainScreen].bounds.size.width
 
+
+#import <Availability.h>
+
+#define REDPACKET_AVALABLE
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif /* PrefixHeader_pch */
+
+
+
+
+#ifdef __OBJC__
+
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+
+#import "ChatDemoUIDefine.h"
+#import "EMAlertView.h"
+#import "TTGlobalUICommon.h"
+#import "EMSDKFull.h"
+#import "EaseUI.h"
 #import "CorlorTransform.h"
 
 #import "FontOutSystem.h"
@@ -36,10 +59,11 @@
 
 #import "String_Array.h"
 
-#import "UIImageView+WebCache.h"
+#import "UIImageView+EMWebCache.h"
 
 #import "MBProgressHUD.h"
-// Include any system framework and library headers here that should be included in all compilation units.
-// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 
-#endif /* PrefixHeader_pch */
+#define DEMO_CALL 1
+
+
+#endif
