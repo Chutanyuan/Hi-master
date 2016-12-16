@@ -20,14 +20,20 @@
 {
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         
-        
-        
+        _imageview = [[UIImageView alloc]init];
+        _imageview.frame = CGRectMake(10, 10, screenwidth-20, screenheight-204);
+        _imageview.contentMode = UIViewContentModeScaleAspectFill;
+        _imageview.clipsToBounds = YES;
+        [self addSubview:_imageview];
+        CGRect frame = self.frame;
+        frame.size.height = _imageview.frame.size.height+20;
+        self.frame = frame;
     }
     return self;
 }
--(void)setPhotos:(NSArray *)photos
+-(void)setPhotos:(NSString *)photos
 {
-
+    [_imageview sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",photos]]];
 }
 
 @end

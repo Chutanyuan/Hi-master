@@ -10,6 +10,6 @@
 
 @interface MoreViewCell : UITableViewCell
 
-@property(nonatomic,strong)NSArray * photos;
+@property(nonatomic,strong)NSString * photos;
 
 @end

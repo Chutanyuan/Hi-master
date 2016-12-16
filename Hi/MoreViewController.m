@@ -42,7 +42,8 @@
         cell = [[MoreViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
     }
     NSDictionary * user = [_dataObject objectForKey:@"user"];
-    cell.photos = user[@"backgroundPhotos"];
+    NSArray * photos = user[@"backgroundPhotos"];
+    cell.photos = photos[indexPath.row];
     return cell;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -61,6 +62,11 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
     return self.view.frame.size.height;
+}
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UIView * headView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, screenwidth, self.view.frame.size.height)];
+    return headView;
 }
 
 
