@@ -35,6 +35,8 @@
     [super viewDidLoad];
     [self.navigationController.navigationBar setBarTintColor:[CorlorTransform colorWithHexString:@"#393A3F"]];
     self.navigationController.navigationBar.titleTextAttributes=[NSDictionary dictionaryWithObject:[UIColor whiteColor] forKey:NSForegroundColorAttributeName];
+    //保证push的时候pop页面的返回按钮颜色是白色
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     
     [self loadData];
     self.automaticallyAdjustsScrollViewInsets = NO;

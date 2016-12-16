@@ -20,7 +20,6 @@
 @property(nonatomic,strong)UITableView * tableview;
 @property(nonatomic,strong)NSArray *conversationsArray;
 
-
 @end
 
 @implementation ViewController

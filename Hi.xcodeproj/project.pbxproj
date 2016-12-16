@@ -254,11 +254,13 @@
 		2BB4164C1DE6D56B006E6DF4 /* CompressImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BB4164A1DE6D56B006E6DF4 /* CompressImage.m */; };
 		2BB4165F1DE6E2CD006E6DF4 /* ViewUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BB4165E1DE6E2CD006E6DF4 /* ViewUtil.m */; };
 		2BB416941DE6F9A7006E6DF4 /* JobView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BB416931DE6F9A7006E6DF4 /* JobView.m */; };
-		2BC560B51DEFBAFE0006DE3F /* followViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC560B41DEFBAFE0006DE3F /* followViewController.m */; };
 		2BC9E2551DE56CEB00F7DAAD /* chooseSexView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC9E2541DE56CEB00F7DAAD /* chooseSexView.m */; };
 		2BC9E2591DE58D1500F7DAAD /* UserData.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC9E2581DE58D1500F7DAAD /* UserData.m */; };
 		2BC9E25C1DE590F600F7DAAD /* PersonalSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC9E25B1DE590F600F7DAAD /* PersonalSettingViewController.m */; };
 		2BCD960D1DE4249400636C45 /* loginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BCD960C1DE4249400636C45 /* loginViewController.m */; };
+		2BD589E21E03DEBF0039BAD8 /* MoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BD589E11E03DEBF0039BAD8 /* MoreViewController.m */; };
+		2BD589E51E03E7370039BAD8 /* pageAppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BD589E41E03E7370039BAD8 /* pageAppViewController.m */; };
+		2BD589E81E03EE7B0039BAD8 /* MoreViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BD589E71E03EE7B0039BAD8 /* MoreViewCell.m */; };
 		2BE54A021DED2D0400FFD8AB /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BE54A011DED2D0400FFD8AB /* CoreMedia.framework */; };
 		2BE54A041DED2D1000FFD8AB /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BE54A031DED2D1000FFD8AB /* AudioToolbox.framework */; };
 		2BE54A061DED2D1600FFD8AB /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BE54A051DED2D1600FFD8AB /* AVFoundation.framework */; };
@@ -782,8 +784,6 @@
 		2BB4165E1DE6E2CD006E6DF4 /* ViewUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewUtil.m; sourceTree = "<group>"; };
 		2BB416921DE6F9A7006E6DF4 /* JobView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobView.h; sourceTree = "<group>"; };
 		2BB416931DE6F9A7006E6DF4 /* JobView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobView.m; sourceTree = "<group>"; };
-		2BC560B31DEFBAFE0006DE3F /* followViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = followViewController.h; sourceTree = "<group>"; };
-		2BC560B41DEFBAFE0006DE3F /* followViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = followViewController.m; sourceTree = "<group>"; };
 		2BC9E2531DE56CEB00F7DAAD /* chooseSexView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = chooseSexView.h; sourceTree = "<group>"; };
 		2BC9E2541DE56CEB00F7DAAD /* chooseSexView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = chooseSexView.m; sourceTree = "<group>"; };
 		2BC9E2571DE58D1500F7DAAD /* UserData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserData.h; sourceTree = "<group>"; };
@@ -792,6 +792,12 @@
 		2BC9E25B1DE590F600F7DAAD /* PersonalSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalSettingViewController.m; sourceTree = "<group>"; };
 		2BCD960B1DE4249400636C45 /* loginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = loginViewController.h; sourceTree = "<group>"; };
 		2BCD960C1DE4249400636C45 /* loginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = loginViewController.m; sourceTree = "<group>"; };
+		2BD589E01E03DEBF0039BAD8 /* MoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreViewController.h; sourceTree = "<group>"; };
+		2BD589E11E03DEBF0039BAD8 /* MoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreViewController.m; sourceTree = "<group>"; };
+		2BD589E31E03E7370039BAD8 /* pageAppViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pageAppViewController.h; sourceTree = "<group>"; };
+		2BD589E41E03E7370039BAD8 /* pageAppViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = pageAppViewController.m; sourceTree = "<group>"; };
+		2BD589E61E03EE7B0039BAD8 /* MoreViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreViewCell.h; sourceTree = "<group>"; };
+		2BD589E71E03EE7B0039BAD8 /* MoreViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreViewCell.m; sourceTree = "<group>"; };
 		2BE549D51DED2CE800FFD8AB /* EMCallEnum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMCallEnum.h; sourceTree = "<group>"; };
 		2BE549D61DED2CE800FFD8AB /* EMCallLocalView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMCallLocalView.h; sourceTree = "<group>"; };
 		2BE549D71DED2CE800FFD8AB /* EMCallManagerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMCallManagerDelegate.h; sourceTree = "<group>"; };
@@ -2340,8 +2346,12 @@
 			children = (
 				2BFCAB701DDC6D410023FF1C /* playerMessageViewController.h */,
 				2BFCAB711DDC6D410023FF1C /* playerMessageViewController.m */,
-				2BC560B31DEFBAFE0006DE3F /* followViewController.h */,
-				2BC560B41DEFBAFE0006DE3F /* followViewController.m */,
+				2BD589E31E03E7370039BAD8 /* pageAppViewController.h */,
+				2BD589E41E03E7370039BAD8 /* pageAppViewController.m */,
+				2BD589E01E03DEBF0039BAD8 /* MoreViewController.h */,
+				2BD589E11E03DEBF0039BAD8 /* MoreViewController.m */,
+				2BD589E61E03EE7B0039BAD8 /* MoreViewCell.h */,
+				2BD589E71E03EE7B0039BAD8 /* MoreViewCell.m */,
 			);
 			name = "详细信息";
 			sourceTree = "<group>";
@@ -2536,6 +2546,7 @@
 				2B3923B81DFD2BD500D6A26E /* EaseChineseToPinyin.m in Sources */,
 				2BE54A1C1DED79DD00FFD8AB /* UICollectionViewWaterfallLayout.m in Sources */,
 				2B39237C1DFD2BD500D6A26E /* MJRefreshAutoStateFooter.m in Sources */,
+				2BD589E81E03EE7B0039BAD8 /* MoreViewCell.m in Sources */,
 				2B3920851DFD29B700D6A26E /* EMAlertView.m in Sources */,
 				2B3920971DFD29B700D6A26E /* EMChooseViewController.m in Sources */,
 				2BA9D7BB1DFA69FF00A94E7C /* SBJsonWriter.m in Sources */,
@@ -2620,7 +2631,6 @@
 				2B3923A91DFD2BD500D6A26E /* PSTCollectionViewUpdateItem.m in Sources */,
 				2B60DDFC1DFAC51400633594 /* friendVCTableViewCell.m in Sources */,
 				2B3923AF1DFD2BD500D6A26E /* EaseSDKHelper.m in Sources */,
-				2BC560B51DEFBAFE0006DE3F /* followViewController.m in Sources */,
 				2B3923891DFD2BD500D6A26E /* MWGridCell.m in Sources */,
 				2B39236E1DFD2BD500D6A26E /* amrFileCodec.mm in Sources */,
 				2B7EDFB11DE2AB49008CB078 /* HelpViewController.m in Sources */,
@@ -2634,6 +2644,7 @@
 				2B5FB3C71DDC379700C80152 /* main.m in Sources */,
 				2B3923C51DFD2BD600D6A26E /* EaseViewController.m in Sources */,
 				2BA9D7B91DFA69FF00A94E7C /* SBJsonTokeniser.m in Sources */,
+				2BD589E51E03E7370039BAD8 /* pageAppViewController.m in Sources */,
 				2B3923DB1DFD2BD600D6A26E /* EaseConversationCell.m in Sources */,
 				2BA9D7B71DFA69FF00A94E7C /* SBJsonStreamWriterAccumulator.m in Sources */,
 				2B3923C41DFD2BD600D6A26E /* EaseUsersListViewController.m in Sources */,
@@ -2683,6 +2694,7 @@
 				2B3923CE1DFD2BD600D6A26E /* EaseBubbleView+Location.m in Sources */,
 				2BA9D7B41DFA69FF00A94E7C /* SBJsonStreamParserAdapter.m in Sources */,
 				2B39239A1DFD2BD500D6A26E /* UIButton+EMWebCache.m in Sources */,
+				2BD589E21E03DEBF0039BAD8 /* MoreViewController.m in Sources */,
 				2B3922411DFD2B7300D6A26E /* UserProfileManager.m in Sources */,
 				2B3923D31DFD2BD600D6A26E /* EaseChatToolbar.m in Sources */,
 				2B3923C91DFD2BD600D6A26E /* EaseMessageCell.m in Sources */,

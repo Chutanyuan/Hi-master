@@ -9,7 +9,7 @@
 #import "myFollowViewController.h"
 #import "UICollectionViewWaterfallLayout.h"
 #import "longCollectionViewCell.h"
-
+#import "pageAppViewController.h"
 @interface myFollowViewController ()<UITableViewDelegate,UITableViewDataSource,UICollectionViewDataSource,UICollectionViewDelegateWaterfallLayout,longClooectionViewCellDelegate>
 {
     UICollectionViewWaterfallLayout * _layout;
@@ -137,7 +137,9 @@
 }
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"第%ld个",(long)indexPath.item);
+    pageAppViewController * followVC = [[pageAppViewController alloc]init];
+    followVC.pageContent = _dataArray;
+    [self.navigationController pushViewController:followVC animated:YES];
 }
 #pragma mark - UICollectionViewDelegateWaterfallLayout
 

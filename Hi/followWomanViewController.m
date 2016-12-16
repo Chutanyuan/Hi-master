@@ -9,7 +9,7 @@
 #import "followWomanViewController.h"
 #import "UICollectionViewWaterfallLayout.h"
 #import "ZDCollectionViewCell.h"
-#import "followViewController.h"
+#import "pageAppViewController.h"
 
 
 @interface followWomanViewController ()<UITableViewDelegate,UITableViewDataSource,UICollectionViewDataSource,UICollectionViewDelegateWaterfallLayout>
@@ -126,9 +126,8 @@
 }
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"第%ld个",(long)indexPath.item);
-    followViewController * followVC = [[followViewController alloc]init];
-    followVC.username_bmob = _dataArray[indexPath.item];
+    pageAppViewController * followVC = [[pageAppViewController alloc]init];
+    followVC.pageContent = _dataArray;
     [self.navigationController pushViewController:followVC animated:YES];
 }
 #pragma mark - UICollectionViewDelegateWaterfallLayout

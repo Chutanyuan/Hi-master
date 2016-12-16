@@ -9,7 +9,7 @@
 #import "fansViewController.h"
 #import "UICollectionViewWaterfallLayout.h"
 #import "fansCollectionViewCell.h"
-
+#import "pageAppViewController.h"
 
 @interface fansViewController ()<UITableViewDelegate,UITableViewDataSource,UICollectionViewDataSource,UICollectionViewDelegateWaterfallLayout,fanCollectionViewCellDelegate>
 {
@@ -138,7 +138,9 @@
 }
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"第%ld个",(long)indexPath.item);
+    pageAppViewController * followVC = [[pageAppViewController alloc]init];
+    followVC.pageContent = _dataArray;
+    [self.navigationController pushViewController:followVC animated:YES];
 }
 #pragma mark - UICollectionViewDelegateWaterfallLayout
 
