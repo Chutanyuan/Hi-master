@@ -49,7 +49,6 @@
         [self addSubview:_fansCount];
         
         _addFriend = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_addFriend setImage:[UIImage imageNamed:@"add"] forState:UIControlStateNormal];
         [self addSubview:_addFriend];
         
         _centerLine = [[UIView alloc]initWithFrame:CGRectMake(0, self.frame.size.height/2, self.frame.size.width, 1)];
@@ -118,8 +117,21 @@
     [_showImageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",dic.headPhoto]]];
     _showImageView.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.width);
     
-    _addFriend.center = CGPointMake(self.frame.size.width-10-15, self.frame.size.width+(self.frame.size.height/2-self.frame.size.width)/2);
-    _addFriend.bounds = CGRectMake(0, 0, 30, 30);
+    if ([dic.isFocus isEqualToString:@"0"]) {
+        _addFriend.center = CGPointMake(self.frame.size.width-10-15, self.frame.size.width+(self.frame.size.height/2-self.frame.size.width)/2);
+        _addFriend.bounds = CGRectMake(0, 0, 30, 30);
+        [_addFriend setImage:[UIImage imageNamed:@"add"] forState:UIControlStateNormal];
+        
+    }else{
+        [_addFriend setTitle:@"已关注" forState:UIControlStateNormal];
+        _addFriend.titleLabel.font = [FontOutSystem fontWithFangZhengZhenSize:10.0];
+        CGSize addfriendSize = [_addFriend.titleLabel.text sizeWithAttributes:[NSDictionary dictionaryWithObjectsAndKeys:_addFriend.titleLabel.font,NSFontAttributeName, nil]];
+        [_addFriend setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+        _addFriend.center = CGPointMake(self.frame.size.width-10-addfriendSize.width/2,self.frame.size.width+(self.frame.size.height/2-self.frame.size.width)/2);
+        _addFriend.bounds = CGRectMake(0, 0, addfriendSize.width, 30);
+        
+    }
+
     
     otherusername = dic.username;
     

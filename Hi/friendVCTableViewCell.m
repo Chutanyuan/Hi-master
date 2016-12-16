@@ -27,12 +27,16 @@
     }
     return self;
 }
--(void)setUserDic:(NSDictionary *)userDic
+-(void)setUser:(Person *)user
 {
-    [_headImage sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",userDic[@"headPhoto"]]]];
-    _nickname.text = [NSString stringWithFormat:@"%@",userDic[@"nickName"]];
+    [_headImage sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",user.headPhoto]]];
+    _nickname.text = [NSString stringWithFormat:@"%@",user.nickName];
     CGSize size_nickname = [_nickname.text sizeWithAttributes:[NSDictionary dictionaryWithObjectsAndKeys:_nickname.font,NSFontAttributeName, nil]];
     _nickname.frame = CGRectMake(_headImage.frame.origin.x+_headImage.frame.size.width+10, _headImage.center.y-size_nickname.height/2, size_nickname.width, size_nickname.height);
+}
+-(void)setUserDic:(NSDictionary *)userDic
+{
+   
     
 }
 

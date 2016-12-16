@@ -42,9 +42,9 @@
 -(void)loadData{
     self.getFriendArray = [[NSMutableArray alloc]initWithCapacity:0];
     dataArray = [[NSMutableArray alloc] initWithCapacity:0];
-    
-    NSDictionary * parameter = [[NSDictionary alloc]initWithObjectsAndKeys:@"identity",@"-1",@"depart",@"-1",@"sex",@"0",@"username",@"15565864350",@"offset",@"0",@"limit",@"10", nil];
-    [BmobCloud callFunctionInBackground:@"getAroundWomen" withParameters:parameter block:^(NSString * data, NSError *error) {
+    BmobUser * getCurrentUser = [BmobUser currentUser];
+    NSDictionary * parameter = [[NSDictionary alloc]initWithObjectsAndKeys:[getCurrentUser objectForKey:@"username"],@"username", nil];
+    [BmobCloud callFunctionInBackground:@"getMyFriends" withParameters:parameter block:^(NSString * data, NSError *error) {
         if (error) {
             NSLog(@"error %@",[error description]);
         }
@@ -53,10 +53,29 @@
         for (int i = 0; i<[self.getFriendArray count]; i++) {
             Person *p = [[Person alloc] init];
             NSDictionary * dic = self.getFriendArray[i];
-            p.name = [NSString stringWithFormat:@"%@",dic[@"user"][@"nickName"]];
+            p.name = [NSString stringWithFormat:@"%@",dic[@"nickName"]];
             p.number = i;
-            p.headUrl = [NSString stringWithFormat:@"%@",dic[@"user"][@"headPhoto"]];
-            p.userDic = dic[@"user"];
+            p.headUrl = [NSString stringWithFormat:@"%@",dic[@"headPhoto"]];
+            
+            p.nickName = [NSString stringWithFormat:@"%@",dic[@"nickName"]];
+            p.backgroundPhotos = dic[@"backgroundPhotos"];
+            p.chatPassword = [NSString stringWithFormat:@"%@",dic[@"chatPassword"]];
+            p.headPhoto = [NSString stringWithFormat:@"%@",dic[@"headPhoto"]];
+            p.city = [NSString stringWithFormat:@"%@",dic[@"city"]];
+            p.food = [NSString stringWithFormat:@"%@",dic[@"food"]];
+            p.createdAt = [NSString stringWithFormat:@"%@",dic[@"createdAt"]];
+            p.height = [NSString stringWithFormat:@"%@",dic[@"height"]];
+            p.hobby = [NSString stringWithFormat:@"%@",dic[@"hobby"]];
+            p.lovePlace = [NSString stringWithFormat:@"%@",dic[@"lovePlace"]];
+            p.mobilePhoneNumber = [NSString stringWithFormat:@"%@",dic[@"mobilePhoneNumber"]];
+            p.mobilePhoneNumberVerified = [NSString stringWithFormat:@"%@",dic[@"mobilePhoneNumberVerified"]];
+            p.movie = [NSString stringWithFormat:@"%@",dic[@"movie"]];
+            p.objectId = [NSString stringWithFormat:@"%@",dic[@"objectId"]];
+            p.sex = [NSString stringWithFormat:@"%@",dic[@"sex"]];
+            p.updatedAt = [NSString stringWithFormat:@"%@",dic[@"updatedAt"]];
+            p.userIdentity = [NSString stringWithFormat:@"%@",dic[@"userIdentity"]];
+            p.username = [NSString stringWithFormat:@"%@",dic[@"headPhoto"]];
+            
             [dataArray addObject:p];
         }
         
@@ -104,7 +123,7 @@
     }
     //获得对应的Person对象
     Person *p = [[self.letterResultArr objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
-    cell.userDic = p.userDic;
+    cell.user = p;
     return cell;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

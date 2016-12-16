@@ -16,4 +16,24 @@
 @property (assign , nonatomic) NSInteger number;
 
 
+@property (strong , nonatomic) NSArray * backgroundPhotos;
+@property (strong , nonatomic) NSString * chatPassword;
+@property (strong , nonatomic) NSString * city;
+@property (strong , nonatomic) NSString * food;
+@property (strong , nonatomic) NSString * createdAt;
+@property (strong , nonatomic) NSString * headPhoto;
+@property (strong , nonatomic) NSString * height;
+@property (strong , nonatomic) NSString * hobby;
+@property (strong , nonatomic) NSString * lovePlace;
+@property (strong , nonatomic) NSString * mobilePhoneNumber;
+@property (strong , nonatomic) NSString * mobilePhoneNumberVerified;
+@property (strong , nonatomic) NSString * movie;
+@property (strong , nonatomic) NSString * nickName;
+@property (strong , nonatomic) NSString * objectId;
+@property (strong , nonatomic) NSString * sex;
+@property (strong , nonatomic) NSString * updatedAt;
+@property (strong , nonatomic) NSString * userIdentity;
+@property (strong , nonatomic) NSString * username;
+
+
 @end

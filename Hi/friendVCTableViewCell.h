@@ -7,12 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "Person.h"
 @interface friendVCTableViewCell : UITableViewCell
 
 @property(nonatomic,strong)UIImageView * headImage;
 @property(nonatomic,strong)UILabel * nickname;
 
-@property(nonatomic,strong)NSDictionary * userDic;
+@property(nonatomic,assign)Person * user;
 
 @end

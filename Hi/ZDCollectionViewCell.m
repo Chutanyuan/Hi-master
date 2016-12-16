@@ -35,7 +35,6 @@
         [self addSubview:_fansCount];
         
         _addFriend = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_addFriend setImage:[UIImage imageNamed:@"add"] forState:UIControlStateNormal];
         [self addSubview:_addFriend];
         
         
@@ -47,11 +46,26 @@
 {
     model_dic * userDic = [[model_dic alloc]initWithDictionary:username_bmob];
     
+    
     [_showImageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",userDic.headPhoto]]];
     _showImageView.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.width);
     
-    _addFriend.center = CGPointMake(self.frame.size.width-10-15, self.frame.size.width+(self.frame.size.height-self.frame.size.width)/2);
-    _addFriend.bounds = CGRectMake(0, 0, 30, 30);
+    
+    if ([userDic.isFocus isEqualToString:@"0"]) {
+        _addFriend.center = CGPointMake(self.frame.size.width-10-15, self.frame.size.width+(self.frame.size.height-self.frame.size.width)/2);
+        _addFriend.bounds = CGRectMake(0, 0, 30, 30);
+        [_addFriend setImage:[UIImage imageNamed:@"add"] forState:UIControlStateNormal];
+        
+    }else{
+        [_addFriend setTitle:@"已关注" forState:UIControlStateNormal];
+        _addFriend.titleLabel.font = [FontOutSystem fontWithFangZhengZhenSize:10.0];
+        CGSize addfriendSize = [_addFriend.titleLabel.text sizeWithAttributes:[NSDictionary dictionaryWithObjectsAndKeys:_addFriend.titleLabel.font,NSFontAttributeName, nil]];
+        [_addFriend setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+        _addFriend.center = CGPointMake(self.frame.size.width-10-addfriendSize.width/2, self.frame.size.width+(self.frame.size.height-self.frame.size.width)/2);
+        _addFriend.bounds = CGRectMake(0, 0, addfriendSize.width, 30);
+
+    }
+
     
     otherusername = userDic.username;
     
@@ -77,7 +91,6 @@
     HUD.delegate = self;
     HUD.labelText = @"添加关注";
     
-    
     NSString * myusername = [[BmobUser currentUser] objectForKey:@"username"];
     
     NSLog(@"\n%@\n%@",myusername,otherusername);
@@ -86,6 +99,7 @@
         if (error) {
             NSLog(@"error %@",[error description]);
         }else{
+            
             [HUD hide:YES afterDelay:0.5];
         }
     }] ;

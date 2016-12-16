@@ -32,8 +32,8 @@
 }
 /** Bmob 获取 _user 列表中的所有数据 */
 -(void)getdata{
-    
-    NSDictionary * sendDic = @{@"identity":@"-1",@"depart":@"-1",@"sex":@"2",@"username":@"15565864350",@"offset":@"0",@"limit":@"10"};
+     BmobUser * getUser = [BmobUser currentUser];
+    NSDictionary * sendDic = @{@"identity":@"-1",@"depart":@"-1",@"sex":@"2",@"username":[getUser objectForKey:@"username"],@"offset":@"0",@"limit":@"10"};
     [BmobCloud callFunctionInBackground:@"getAroundWomen" withParameters:sendDic block:^(NSString * dataArray, NSError *error) {
         if (error) {
             NSLog(@"error %@",[error description]);
