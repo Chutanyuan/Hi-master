@@ -49,6 +49,9 @@
     [self addChildViewController:_pageController];
     [self.view addSubview:_pageController.view];
     
+    self.automaticallyAdjustsScrollViewInsets = NO;
+
+    
 }
 
 // 得到相应的VC对象
