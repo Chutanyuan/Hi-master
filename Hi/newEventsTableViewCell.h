@@ -10,4 +10,6 @@
 
 @interface newEventsTableViewCell : UITableViewCell
 
+@property(nonatomic,strong)NSDictionary * dictionary;
+
 @end

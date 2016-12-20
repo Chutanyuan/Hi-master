@@ -162,8 +162,8 @@
     [newEvents setTitleTextAttributes:[NSDictionary dictionaryWithObject:[CorlorTransform colorWithHexString:@"#00A322"] forKey:NSForegroundColorAttributeName] forState:UIControlStateSelected];
     
     
-    newEvents.image = [[UIImage imageNamed:@"tabbar_discover"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    newEvents.selectedImage = [[UIImage imageNamed:@"tabbar_discoverHL"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    newEvents.image = [[UIImage imageNamed:@"xinxian"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    newEvents.selectedImage = [[UIImage imageNamed:@"xianxianxuanzhong"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     
     
     

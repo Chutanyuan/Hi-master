@@ -91,22 +91,22 @@
         }
         if (indexPath.section==2) {
             if (indexPath.row==0) {
-                cell.imageView.image = [UIImage imageNamed:@"common_list_mingpian"];
+                cell.imageView.image = [UIImage imageNamed:@"photo"];
                 cell.textLabel.text = @"相册";
             }else{
-                cell.imageView.image = [UIImage imageNamed:@"content_list_icon_hui"];
+                cell.imageView.image = [UIImage imageNamed:@"shoucang"];
                 cell.textLabel.text = @"收藏";
             }
         }
         if (indexPath.section==3) {
             if (indexPath.row == 0) {
-                cell.imageView.image = [UIImage imageNamed:@"bg_setting"];
+                cell.imageView.image = [UIImage imageNamed:@"setting"];
                 cell.textLabel.text = @"设置";
             }
         }
         if (indexPath.section==1) {
             if (indexPath.row==0) {
-                cell.imageView.image = [UIImage imageNamed:@"common_list_mingpian"];
+                cell.imageView.image = [UIImage imageNamed:@"yinsi"];
                 cell.textLabel.text = @"隐私";
             }
         }

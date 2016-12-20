@@ -11,7 +11,7 @@
 @interface NewEventsViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property(nonatomic,strong)UITableView * tableview;
-
+@property(nonatomic,strong)NSArray * dataArray;
 @end
 
 @implementation NewEventsViewController
@@ -21,14 +21,26 @@
     //设置导航条颜色 标题颜色
     [self.navigationController.navigationBar setBarTintColor:[CorlorTransform colorWithHexString:@"#393A3F"]];
     self.navigationController.navigationBar.titleTextAttributes=[NSDictionary dictionaryWithObject:[UIColor whiteColor] forKey:NSForegroundColorAttributeName];
+    self.automaticallyAdjustsScrollViewInsets = NO;
     // Do any additional setup after loading the view.
-    [self  tableview];
+    [self getdata];
 }
-
+- (void)getdata{
+    BmobUser * getUser = [BmobUser currentUser];
+    NSDictionary * sendDic = @{@"username":[getUser objectForKey:@"username"]};
+    [BmobCloud callFunctionInBackground:@"getMoments" withParameters:sendDic block:^(NSString * dataArray, NSError *error) {
+        if (error) {
+            NSLog(@"error %@",[error description]);
+        }
+        self.dataArray = [String_Array dictionaryWithJsonString:dataArray];
+        [self tableview];
+        
+    }] ;
+}
 -(UITableView *)tableview
 {
     if (!_tableview) {
-        _tableview = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, screenwidth, screenheight-44) style:UITableViewStylePlain];
+        _tableview = [[UITableView alloc]initWithFrame:CGRectMake(0, 64, screenwidth, screenheight-108) style:UITableViewStylePlain];
         _tableview.separatorStyle = UITableViewCellSeparatorStyleNone;
         _tableview.delegate = self;
         _tableview.dataSource = self;
@@ -43,12 +55,13 @@
     if (!cell) {
         cell = [[newEventsTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
     }
+    cell.dictionary = _dataArray[indexPath.row];
     return cell;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 10;
+    return self.dataArray.count;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
